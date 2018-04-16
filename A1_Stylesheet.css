@@ -1,0 +1,43 @@
+html {
+	margin: 0;
+	padding: 0;
+	background-color:powderblue;
+	background-image: 
+}
+
+body {
+	background-color:powderblue;
+	color:navy;
+	font-weight:normal;
+	width: 90%;
+	margin: 0 auto;
+	font-family: "Times New Roman", Georgia, serif;
+	text-align: justify;
+}
+#map_ex {
+	
+	background-image: url("maps/uganda.jpg");
+	
+	/* alt="Hills of Scotland" Title="A Hill in Scotland"/> */
+
+	background-size: 100%;
+	position: relative;
+	background-position: center;
+	max-height: 170px;
+	height: 100px;
+	width: 100%;
+	
+}
+
+table, td{
+	border: 1px solid black;
+	padding: 20px;
+}
+
+#Report_Status {
+	width: 50%;
+}
+
+#Map_img {
+
+}

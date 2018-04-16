@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Coord</title>
+</head>
+
+<body>
+
+<form>
+
+	X:<br>
+	<input type="text" x="XCoord"><br>
+	Y:<br>
+	<input type="text" y="YCoord"><br>
+	Map Scale:<br>
+	<input type="text" Scale="Scale">
+	
+	<script>
+	var text = "";
+	var layers = ["Buildings", "Roads", "Points of Interest", "Aerial Photo Layer"];
+	var _layer;
+	for (_layer in layers){
+		text += layers[_layer] + "<br>";
+		}
+		
+	document.getElementById("Control_Form").innerHTML = text;
+	</script>
+
+</form>
+
+</body>
+</html>

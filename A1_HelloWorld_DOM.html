@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="This is a web page that is meant for my Fall 2017 class GIS4111" content="A page about myself">
+<title>Titlte</title>
+<link rel="stylesheet" href="A1_Stylesheet.css">
+
+<script src="A1_JavaScript.js"></script>
+
+</head>
+
+<header>
+<div class='content-wrap'>
+<img class="img..." src="..."
+	alt="Breanne Simon" title="Profile Picture"/>
+<h2>Breanne Simon</h2>
+</div>
+</header>
+
+<body>
+<table>
+	<tr>
+		<td id="Control">		
+			Longitude:<br>
+			<input type="text" x="XCoord"><br>
+			<br>
+			Latitude:<br>
+			<input type="text" y="YCoord"><br>
+			<br>
+			Map Scale:<br>
+			1:<input type="text" Scale="Scale"><br>
+			<br>
+			Visible Map Layers:		
+		<p id="Control_Form"></p>		
+		</td>			
+			<script>
+			var layers = ["Buildings", "Roads", "Points of Interest", "Aerial Photo Layer"];
+			var text = "";
+			var _layer;
+			for (_layer = 0; _layer < layers.length; _layer++){
+				text += '<input type="checkbox" id="myCheck">'+layers[_layer] + "<br>";
+				}
+			document.getElementById("Control_Form").innerHTML = text;
+			</script>
+		
+		<td id="Report_Status">
+		<table>
+			<tr>
+				<td>Report1</td>
+				<td>Report12</td>
+			</tr>
+			<tr>
+				<td>Report2</td>
+				<td>Report22</td>
+			</tr>
+			<tr>
+				<td>Report3</td>
+				<td>Report32</td>
+			</tr>
+			<tr>
+				<td>Report4</td>
+				<td>Report42</td>
+			</tr>
+		</table>
+		</td>
+	</tr>
+	<tr>
+		<td id="Map_img">
+			<div id="map_ex" title="Uganda" role="Example map"></div>
+			
+			<p>Map img</p>
+		</td>
+	</tr>
+</table>
+<footer role="contentinfo">
+<div class="content-wrap">
+<h2> Keep in Touch!</h2>
+
+<div class="content-info">
+<a href="https://www.linkedin.com/in/bresimon/">Linkedin</a>
+</div>
+
+<p> &copy; 2018 Breanne Simon &trade;</p>
+</div>
+</footer>
+</body>
+</html>
+
+<!-- <a href="" ></a>
+<img src="" alt="" width="" height=""> -->
