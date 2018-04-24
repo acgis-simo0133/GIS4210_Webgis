@@ -3,75 +3,187 @@
 <head>
 <meta charset="UTF-8">
 <meta name="This is a web page that is meant for my Fall 2017 class GIS4111" content="A page about myself">
-<title>Titlte</title>
 <link rel="stylesheet" href="A1_Stylesheet.css">
-
-<script src="A1_JavaScript.js"></script>
-
+<script type="text/javascript" onload="report()">
+function report(){
+	var txt = document.getElementById('scale').value;
+	document.getElementById('mapScale').innerHTML = txt;
+	
+	var n1 = count();
+	document.getElementById('numLayers').innerHTML = n1;
+	
+	var x1 = document.getElementById('img');
+	document.getElementById('XCoord').value = x1.width/2;
+	
+	var y1 = document.getElementById('img');
+	document.getElementById('YCoord').value = y1.height/2;
+	
+	document.getElementById('mapC').innerHTML = "(" + x1.width/2 +" , "+ y1.height/2 + ")";
+	
+	var ct=count();
+	alert(ct+" layer(s) are selected");
+	}
+</script>
 </head>
 
 <header>
 <div class='content-wrap'>
-<img class="img..." src="..."
-	alt="Breanne Simon" title="Profile Picture"/>
 <h2>Breanne Simon</h2>
 </div>
 </header>
 
-<body>
-<table>
-	<tr>
-		<td id="Control">		
-			Longitude:<br>
-			<input type="text" x="XCoord"><br>
-			<br>
-			Latitude:<br>
-			<input type="text" y="YCoord"><br>
-			<br>
-			Map Scale:<br>
-			1:<input type="text" Scale="Scale"><br>
-			<br>
-			Visible Map Layers:		
-		<p id="Control_Form"></p>		
-		</td>			
+<body onload="report()">
+<table id="pgContent" border="1" width="100%">
+		<tr>
+			<td id="controlForm" width="384.75px" onload="report()">
+				<label for="mapCentre">Map Center (X, Y):</label>
+				<input type="text" id="XCoord" name="scale" size="6">
+				<input type="text" id="YCoord" name="scale" size="6">
+				<br>
+				<br>
+				<label for="mapScale">Map Scale:</label>
+				<select id="scale" onchange="report(); changeMap()" onload="report()">
+					<option value="500000" selected="selected">1:500000</option>
+					<option value="250000">1:250000</option>
+					<option value="50000">1:50000</option>
+					<option value="10000">1:10000</option>
+					<option value="2000">1:2000</option>
+				</select>
+				<br>
+				<br>
+				<label for="mapLayers">Visible Map Layers:</label>
+				<form id="myForm" onload="returnvalidateForm()" method="post"></form>
+					<script>
+						var layers = ["Buildings", "Roads", "Points of Interest", "Aerial Photo Layer"];
+						var text = ""
+						var _layer;
+						for (_layer = 0; _layer < layers.length; _layer++){
+							text += '<input type="checkbox" id="myCheck">'+layers[_layer] + "<br>";
+							}
+						document.getElementById("myForm").innerHTML = text;
+					</script>
+					<script type=text/javascript">
+						function count(){
+						var chks = document.getElementById("myCheck");
+						var count = 0;
+						for(i=0; i<chks.length; i++){
+							if (chks[i].type == "checkbox" && chks[i].checked == true){
+								count++;
+								}
+							}
+						var cnt = document.getElementById("myCheck").length;
+						return count;
+						}
+					</script>
+					<script>
+					$('#myform :checkbox').change(function () {
+						if ($(this).is('checked')) {
+							var n1 = count();
+							document.getElementById('numLayers').innerHTML = n1;
+							select();
+							
+						} else{
+							var n1 = count();
+							document.getElementById('numLayers').innerHTML = n1;
+							select();
+							
+						}
+						});
+						</script>
+				<br>
+				<input type="button" value="Reset" onclick="window.location.reload()">
+				<input type="button" value="Alertbox" onclick="report()">
+
+			</td>			
+				
+			<td id="Report_Status" width="384.75px">
+				<table border id="Report_Status" width="80%">
+				<form>
+					<tr>
+						<td colspan="2" id="info">
+						Ottawa Map Zoom
+						<br>
+						<div id="author">By Breanne Simon</div>
+						</td>
+					</tr>
+					<tr>
+						<td>Map Centre:</td>
+						<td id="mapC"></td>
+					</tr>
+					<tr>
+						<td>Map Scale:</td>
+						<td id="mapScale"></td>
+					</tr>
+					<tr>
+						<td>Number of Layers:</td>
+						<td id="numLayers"></td>
+						
+					</tr>
+				</form>
+				</table>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="2" id="img" width="789px" class="center">
+			<img id="img" title="Ottawa at 1:500000 scale" src="maps\\500000.jpg" style="width:769.5px;">
 			<script>
-			var layers = ["Buildings", "Roads", "Points of Interest", "Aerial Photo Layer"];
-			var text = "";
-			var _layer;
-			for (_layer = 0; _layer < layers.length; _layer++){
-				text += '<input type="checkbox" id="myCheck">'+layers[_layer] + "<br>";
+			function changeMap(){
+				var sc = document.getElementById("scale").value;
+				var image - document.getElementById("img");
+				image.src = "maps/"+sc+".jpg";
 				}
-			document.getElementById("Control_Form").innerHTML = text;
-			</script>
-		
-		<td id="Report_Status">
-		<table>
-			<tr>
-				<td>Report1</td>
-				<td>Report12</td>
-			</tr>
-			<tr>
-				<td>Report2</td>
-				<td>Report22</td>
-			</tr>
-			<tr>
-				<td>Report3</td>
-				<td>Report32</td>
-			</tr>
-			<tr>
-				<td>Report4</td>
-				<td>Report42</td>
-			</tr>
-		</table>
-		</td>
-	</tr>
-	<tr>
-		<td id="Map_img">
-			<div id="map_ex" title="Uganda" role="Example map"></div>
-			
-			<p>Map img</p>
-		</td>
-	</tr>
+				/*var x1 = document.getElementById('img');
+				document.getElementById('XCoord').value = x1.width/2;
+				
+				var y1 = document.getElementById('img');
+				document.getElementById('YCoord').value = y1.width/2;
+				
+				document.getElementById('mapC').innerHTML = "(" + x1.width/2 +" , "+ y1.height/2+" ) ";
+				
+				var txt = document.getElementById('scale').value;
+				document.getElementById('mapScale').innerHTML = txt;
+				
+				switch (document.getElementById("scale").value){
+				case "1:250000":{
+					load250000();
+					break;
+					}
+				case "1:50000":{
+					load50000():
+					break;
+					}
+				case "1:10000":{
+					load10000();
+					break;
+					}
+				case "1:2000":{
+					load2000();
+					break;
+					}
+				case "1:500000":{
+					load500000():
+					break;
+					}
+				}
+				
+				function load250000(){
+					document.getElementById("img".src = "maps//250000.jpg";
+					}
+				function load50000(){
+					document.getElementById("img".src = "maps//50000.jpg";
+					}
+				function load10000(){
+					document.getElementById("img".src = "maps//10000.jpg";
+					}
+				function load2000(){
+					document.getElementById("img".src = "maps//2000.jpg";
+					}
+				function load500000(){
+					document.getElementById("img".src = "maps//500000.jpg";
+					}*/
+				</script>
+			</td>
+		</tr>
 </table>
 <footer role="contentinfo">
 <div class="content-wrap">

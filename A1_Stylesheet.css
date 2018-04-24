@@ -20,7 +20,7 @@ body {
 	
 	/* alt="Hills of Scotland" Title="A Hill in Scotland"/> */
 
-	background-size: 100%;
+	background-size: ...;
 	position: relative;
 	background-position: center;
 	max-height: 170px;
@@ -30,12 +30,10 @@ body {
 }
 
 table, td{
-	border: 1px solid black;
-	padding: 20px;
+
 }
 
 #Report_Status {
-	width: 50%;
 }
 
 #Map_img {
