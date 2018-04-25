@@ -36,17 +36,21 @@ body {
 
 }
 	#info{
+		font-size: 25px;
 		background-position: center;
 		text-align: center;
 		height: 40px;
 	}
 	#mapC{
+		height: 10px;
 		padding: 5px;
 	}
 	#mapScale{
+		height: 10px;
 		padding: 5px;
 	}
 	#numLayers{
+		height: 10px;
 		padding: 5px;
 	}
 
