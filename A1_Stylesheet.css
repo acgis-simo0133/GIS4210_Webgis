@@ -2,7 +2,7 @@ html {
 	margin: 0;
 	padding: 0;
 	background-color:powderblue;
-	background-image: 
+	/* background-image:  */
 }
 
 body {
@@ -14,28 +14,47 @@ body {
 	font-family: "Times New Roman", Georgia, serif;
 	text-align: justify;
 }
-#map_ex {
-	
-	background-image: url("maps/uganda.jpg");
-	
-	/* alt="Hills of Scotland" Title="A Hill in Scotland"/> */
 
-	background-size: ...;
-	position: relative;
-	background-position: center;
-	max-height: 170px;
-	height: 100px;
-	width: 100%;
+#pgContent{
+	width: 700px;
+	border: 1;
 	
 }
 
-table, td{
-
+#controlForm{
+	width: 338px;
+	padding: 20px;
 }
 
-#Report_Status {
-}
+#Report_Status{
+	width: 80%;
+	border: 1px solid black;
+	border-collapse: collapse;
+	padding: 20px;
+	margin-left: auto;
+	margin-right: auto;
 
-#Map_img {
+}
+	#info{
+		background-position: center;
+		text-align: center;
+		height: 40px;
+	}
+	#mapC{
+		padding: 5px;
+	}
+	#mapScale{
+		padding: 5px;
+	}
+	#numLayers{
+		padding: 5px;
+	}
+
+#img {
+		display: block;
+		padding: 20px;
+		margin-left: auto;
+		margin-right: auto;
+		width: 700px;
 
 }
